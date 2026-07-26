@@ -1,0 +1,51 @@
+<view class="form">
+
+  <!-- 图片 -->
+  <view class="img-picker" bindtap="onChooseImage">
+    <image wx:if="{{tempImage || image}}" class="img-preview"
+           src="{{tempImage || image}}" mode="aspectFill" />
+    <view wx:else class="img-empty">
+      <text class="img-plus">📷</text>
+      <text class="img-tip">添加照片</text>
+    </view>
+    <view class="img-change" wx:if="{{tempImage || image}}">点击更换</view>
+  </view>
+
+  <view class="field">
+    <view class="label">菜名 *</view>
+    <input class="input" value="{{name}}" placeholder="比如：番茄炒蛋"
+           maxlength="20" bindinput="onNameInput" />
+  </view>
+
+  <view class="field">
+    <view class="label">描述</view>
+    <textarea class="textarea" value="{{desc}}" placeholder="比如：招牌菜，酸甜下饭～"
+              maxlength="60" bindinput="onDescInput" auto-height />
+  </view>
+
+  <view class="field">
+    <view class="label">金币价格 *</view>
+    <view class="price-row">
+      <text class="coin-icon">🪙</text>
+      <input class="input price-input" type="number" value="{{price}}"
+             placeholder="0" bindinput="onPriceInput" />
+    </view>
+  </view>
+
+  <view class="field">
+    <view class="label">分类 *</view>
+    <picker range="{{catNames}}" value="{{catIndex}}" bindchange="onCatChange">
+      <view class="picker {{catIndex < 0 ? 'placeholder' : ''}}">
+        {{catIndex >= 0 ? catNames[catIndex] : '选择分类'}}
+        <text class="picker-arrow">›</text>
+      </view>
+    </picker>
+  </view>
+
+  <view class="field row">
+    <view class="label">立即上架</view>
+    <switch checked="{{onSale}}" color="#FF8A5C" bindchange="onSaleChange" />
+  </view>
+
+  <button class="btn-primary save-btn" bindtap="onSave">保存</button>
+</view>

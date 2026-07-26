@@ -1,0 +1,29 @@
+<view class="wrap">
+
+  <!-- 添加新分类 -->
+  <view class="add-row">
+    <input class="add-input" value="{{newName}}" placeholder="新分类名，比如：小炒"
+           maxlength="10" bindinput="onNameInput" confirm-type="done" bindconfirm="onAdd" />
+    <view class="add-btn" bindtap="onAdd">添加</view>
+  </view>
+
+  <!-- 分类列表 -->
+  <view class="cat-list" wx:if="{{categories.length}}">
+    <view class="cat-row" wx:for="{{categories}}" wx:key="_id">
+      <view class="cat-name">{{item.name}}</view>
+      <view class="cat-ops">
+        <view class="btn-mini plain {{index === 0 ? 'op-disabled' : ''}}"
+              bindtap="onMoveUp" data-id="{{item._id}}">上移 ↑</view>
+        <view class="btn-mini" bindtap="onRename" data-id="{{item._id}}">改名</view>
+        <view class="btn-mini danger" bindtap="onDelete" data-id="{{item._id}}">删除</view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:else class="empty">
+    <text class="empty-emoji">🗂</text>
+    还没有分类，先添加一个吧
+  </view>
+
+  <view class="tip">提示：分类的显示顺序 = 这里的排列顺序</view>
+</view>

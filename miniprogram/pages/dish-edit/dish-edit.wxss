@@ -1,0 +1,91 @@
+.form {
+  padding: 32rpx;
+}
+
+/* 图片选择 */
+.img-picker {
+  width: 240rpx;
+  height: 240rpx;
+  margin: 0 auto 40rpx;
+  border-radius: 24rpx;
+  background: #FFFFFF;
+  border: 2rpx dashed #E0D5CA;
+  position: relative;
+  overflow: hidden;
+}
+.img-preview {
+  width: 100%;
+  height: 100%;
+}
+.img-empty {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #B8A99A;
+}
+.img-plus { font-size: 64rpx; }
+.img-tip { font-size: 24rpx; margin-top: 12rpx; }
+.img-change {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  background: rgba(92, 74, 61, 0.6);
+  color: #FFF;
+  font-size: 22rpx;
+  text-align: center;
+  padding: 8rpx 0;
+}
+
+/* 表单项 */
+.field {
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  padding: 24rpx 28rpx;
+  margin-bottom: 24rpx;
+}
+.field.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.field.row .label { margin-bottom: 0; }
+.label {
+  font-size: 26rpx;
+  color: #8A7A6E;
+  margin-bottom: 14rpx;
+}
+.input {
+  font-size: 30rpx;
+}
+.textarea {
+  font-size: 30rpx;
+  width: 100%;
+  min-height: 60rpx;
+}
+.price-row {
+  display: flex;
+  align-items: center;
+}
+.coin-icon {
+  font-size: 32rpx;
+  margin-right: 12rpx;
+}
+.price-input { flex: 1; }
+
+.picker {
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.picker.placeholder { color: #C4B7AA; }
+.picker-arrow {
+  color: #E0D5CA;
+  font-size: 40rpx;
+  transform: rotate(90deg);
+}
+
+.save-btn {
+  margin-top: 20rpx;
+}

@@ -1,0 +1,108 @@
+/* ============================================================
+   全局样式 · 温馨小餐馆主题
+   主色: 暖橙 #FF8A5C  底色: 奶油白 #FFF8F0  文字: 暖棕 #5C4A3D
+   ============================================================ */
+
+page {
+  background: #FFF8F0;
+  color: #5C4A3D;
+  font-size: 28rpx;
+  font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
+}
+
+/* 通用卡片 */
+.card {
+  background: #FFFFFF;
+  border-radius: 24rpx;
+  box-shadow: 0 6rpx 20rpx rgba(190, 150, 120, 0.10);
+  padding: 24rpx;
+  margin: 0 24rpx 24rpx;
+}
+
+/* 主按钮：暖橙胶囊 */
+.btn-primary {
+  background: #FF8A5C;
+  color: #FFFFFF;
+  border-radius: 999rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  padding: 20rpx 0;
+  text-align: center;
+  border: none;
+  line-height: 1.4;
+}
+.btn-primary::after { border: none; }
+.btn-primary.btn-disabled { background: #E8DCD2; color: #B8A99A; }
+
+/* 次要按钮：描边胶囊 */
+.btn-ghost {
+  background: #FFFFFF;
+  color: #FF8A5C;
+  border: 2rpx solid #FF8A5C;
+  border-radius: 999rpx;
+  font-size: 28rpx;
+  padding: 16rpx 0;
+  text-align: center;
+  line-height: 1.4;
+}
+.btn-ghost::after { border: none; }
+
+/* 小号操作按钮 */
+.btn-mini {
+  display: inline-block;
+  font-size: 24rpx;
+  padding: 8rpx 24rpx;
+  border-radius: 999rpx;
+  background: #FFF1E8;
+  color: #FF8A5C;
+  margin-left: 16rpx;
+}
+.btn-mini.danger { background: #FDECEC; color: #E05A5A; }
+.btn-mini.plain { background: #F5EFE9; color: #8A7A6E; }
+
+/* 金币 */
+.coin {
+  color: #F0A020;
+  font-weight: 700;
+}
+
+/* 订单状态标签 */
+.tag {
+  display: inline-block;
+  font-size: 22rpx;
+  padding: 6rpx 18rpx;
+  border-radius: 999rpx;
+  font-weight: 600;
+}
+.tag-pending   { background: #FFF3D6; color: #D99A1B; }
+.tag-accepted  { background: #E4F2FF; color: #4A90D9; }
+.tag-cooking   { background: #FFE9DD; color: #FF8A5C; }
+.tag-served    { background: #E5F6E8; color: #4CAF6E; }
+.tag-cancelled { background: #F0EBE6; color: #A99A8C; }
+
+/* 空状态 */
+.empty {
+  text-align: center;
+  color: #B8A99A;
+  padding: 100rpx 40rpx;
+  font-size: 28rpx;
+}
+.empty .empty-emoji {
+  display: block;
+  font-size: 90rpx;
+  margin-bottom: 20rpx;
+}
+
+/* 页面标题区 */
+.page-header {
+  padding: 30rpx 32rpx 20rpx;
+}
+.page-header .title {
+  font-size: 40rpx;
+  font-weight: 700;
+}
+.page-header .subtitle {
+  font-size: 24rpx;
+  color: #A99A8C;
+  margin-top: 8rpx;
+}

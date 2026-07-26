@@ -1,0 +1,37 @@
+<view class="wrap">
+
+  <!-- 已选菜品 -->
+  <view class="card">
+    <view class="section-title">已选菜品</view>
+    <view class="item" wx:for="{{list}}" wx:key="dishId">
+      <image wx:if="{{item.image}}" class="item-img" src="{{item.image}}" mode="aspectFill" />
+      <view wx:else class="item-img placeholder">🍽️</view>
+      <view class="item-name">{{item.name}}</view>
+      <view class="item-count">×{{item.count}}</view>
+      <view class="item-price coin">🪙 {{item.subtotal}}</view>
+    </view>
+  </view>
+
+  <!-- 备注 -->
+  <view class="card">
+    <view class="section-title">给主厨捎句话</view>
+    <textarea class="remark" value="{{remark}}" maxlength="100" auto-height
+              placeholder="比如：少放辣、多加香菜、想要爱心摆盘…"
+              bindinput="onRemarkInput" />
+  </view>
+
+  <!-- 金额信息 -->
+  <view class="card">
+    <view class="fee-row">
+      <text>我的金币</text>
+      <text class="coin">🪙 {{balance === null ? '…' : balance}}</text>
+    </view>
+    <view class="fee-row total-row">
+      <text>合计</text>
+      <text class="coin total-num">🪙 {{total}}</text>
+    </view>
+  </view>
+
+  <button class="btn-primary submit-btn {{submitting ? 'btn-disabled' : ''}}"
+          bindtap="onSubmit">下单，开饭！🍚</button>
+</view>

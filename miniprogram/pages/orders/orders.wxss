@@ -1,0 +1,79 @@
+.wrap {
+  padding-bottom: 40rpx;
+}
+
+.section-label {
+  font-size: 26rpx;
+  color: #8A7A6E;
+  font-weight: 600;
+  padding: 8rpx 36rpx 16rpx;
+}
+
+.order-card.history {
+  opacity: 0.8;
+}
+
+.order-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16rpx;
+}
+.order-time {
+  font-size: 22rpx;
+  color: #B8A99A;
+}
+
+.order-item {
+  display: flex;
+  align-items: center;
+  padding: 8rpx 0;
+  font-size: 28rpx;
+}
+.oi-name { flex: 1; }
+.oi-count {
+  color: #A99A8C;
+  font-size: 24rpx;
+  margin-right: 24rpx;
+}
+.oi-price { font-size: 26rpx; }
+
+.order-remark {
+  background: #FFFBF0;
+  border-radius: 14rpx;
+  padding: 14rpx 20rpx;
+  font-size: 24rpx;
+  color: #B08A3E;
+  margin: 10rpx 0;
+}
+
+.order-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 2rpx solid #F7F1EA;
+  margin-top: 12rpx;
+  padding-top: 18rpx;
+}
+.order-total {
+  font-size: 26rpx;
+}
+.order-total .coin { font-size: 30rpx; }
+
+.order-ops {
+  display: flex;
+}
+.op-btn {
+  font-size: 26rpx;
+  padding: 12rpx 32rpx;
+  border-radius: 999rpx;
+  border: 2rpx solid #E0D5CA;
+  color: #8A7A6E;
+  margin-left: 16rpx;
+}
+.op-btn.primary {
+  background: #FF8A5C;
+  border-color: #FF8A5C;
+  color: #FFFFFF;
+  font-weight: 600;
+}

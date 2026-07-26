@@ -1,0 +1,9 @@
+{
+  "name": "recharge",
+  "version": "1.0.0",
+  "description": "主厨给顾客充值金币并附言",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

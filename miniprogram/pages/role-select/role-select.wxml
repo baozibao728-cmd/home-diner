@@ -1,0 +1,25 @@
+<view class="wrap">
+  <view class="logo">🏠</view>
+  <view class="title">Home Diner 小食堂</view>
+  <view class="subtitle">我们两个人的专属小餐馆</view>
+
+  <view class="role-card" bindtap="onChoose" data-role="chef">
+    <view class="role-emoji">👨‍🍳</view>
+    <view class="role-info">
+      <view class="role-name">我是主厨</view>
+      <view class="role-desc">管理菜单 · 接单做饭 · 发金币</view>
+    </view>
+    <view class="role-arrow">›</view>
+  </view>
+
+  <view class="role-card" bindtap="onChoose" data-role="customer">
+    <view class="role-emoji">🍽️</view>
+    <view class="role-info">
+      <view class="role-name">我是顾客</view>
+      <view class="role-desc">看菜单 · 点想吃的 · 花金币</view>
+    </view>
+    <view class="role-arrow">›</view>
+  </view>
+
+  <view class="tip">选择会被记住，之后可以在「我的」页面切换身份</view>
+</view>

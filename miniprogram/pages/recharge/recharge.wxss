@@ -1,0 +1,50 @@
+.wrap {
+  padding: 24rpx 0 60rpx;
+}
+
+.section-title {
+  font-size: 26rpx;
+  color: #8A7A6E;
+  margin-bottom: 20rpx;
+  font-weight: 600;
+}
+
+.amount-row {
+  display: flex;
+  align-items: center;
+}
+.coin-icon {
+  font-size: 44rpx;
+  margin-right: 16rpx;
+}
+.amount-input {
+  flex: 1;
+  font-size: 56rpx;
+  font-weight: 800;
+}
+
+.memo-input {
+  font-size: 30rpx;
+  background: #FFFBF7;
+  border-radius: 16rpx;
+  padding: 20rpx;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20rpx;
+  gap: 16rpx;
+}
+.chip {
+  font-size: 24rpx;
+  background: #FFF1E8;
+  color: #FF8A5C;
+  border-radius: 999rpx;
+  padding: 12rpx 28rpx;
+}
+.chip:active { opacity: 0.7; }
+
+.submit-btn {
+  margin: 20rpx 24rpx 0;
+}

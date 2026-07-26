@@ -1,0 +1,86 @@
+<view class="page">
+
+  <!-- 顶部问候 -->
+  <view class="page-header">
+    <view class="title" wx:if="{{role === 'customer'}}">今天想吃点什么呀？🍚</view>
+    <view class="title" wx:else>主厨的菜单管理 👨‍🍳</view>
+    <view class="subtitle" wx:if="{{role === 'chef'}}">下架的菜她看不到哦</view>
+  </view>
+
+  <!-- 主厨工具条 -->
+  <view class="chef-bar" wx:if="{{role === 'chef'}}">
+    <view class="chef-btn main" bindtap="onAddDish">➕ 新增菜品</view>
+    <view class="chef-btn" bindtap="onManageCats">🗂 分类管理</view>
+  </view>
+
+  <view class="menu-body">
+    <!-- 左侧分类栏 -->
+    <scroll-view scroll-y class="cat-side">
+      <view class="cat-item {{activeCat === 'all' ? 'active' : ''}}"
+            bindtap="onCatTap" data-id="all">全部</view>
+      <view wx:for="{{categories}}" wx:key="_id"
+            class="cat-item {{activeCat === item._id ? 'active' : ''}}"
+            bindtap="onCatTap" data-id="{{item._id}}">{{item.name}}</view>
+    </scroll-view>
+
+    <!-- 右侧菜品列表 -->
+    <scroll-view scroll-y class="dish-list">
+      <view wx:if="{{loading}}" class="empty">加载中…</view>
+
+      <block wx:elif="{{shownDishes.length}}">
+        <view class="dish-card {{!item.onSale ? 'off' : ''}}" wx:for="{{shownDishes}}" wx:key="_id">
+          <image wx:if="{{item.image}}" class="dish-img" src="{{item.image}}" mode="aspectFill" />
+          <view wx:else class="dish-img placeholder">🍽️</view>
+
+          <view class="dish-info">
+            <view class="dish-name">
+              {{item.name}}
+              <text wx:if="{{!item.onSale}}" class="off-tag">已下架</text>
+            </view>
+            <view class="dish-desc" wx:if="{{item.desc}}">{{item.desc}}</view>
+            <view class="dish-bottom">
+              <view class="dish-price"><text class="coin">🪙 {{item.price}}</text></view>
+
+              <!-- 顾客：加减购物车 -->
+              <view class="stepper" wx:if="{{role === 'customer'}}">
+                <view wx:if="{{item.cartCount > 0}}" class="step-btn minus"
+                      bindtap="onMinus" data-id="{{item._id}}">−</view>
+                <view wx:if="{{item.cartCount > 0}}" class="step-num">{{item.cartCount}}</view>
+                <view class="step-btn plus" bindtap="onAdd" data-id="{{item._id}}">＋</view>
+              </view>
+            </view>
+
+            <!-- 主厨：管理按钮 -->
+            <view class="dish-manage" wx:if="{{role === 'chef'}}">
+              <view class="btn-mini" bindtap="onEditDish" data-id="{{item._id}}">编辑</view>
+              <view class="btn-mini plain" bindtap="onToggleSale" data-id="{{item._id}}">
+                {{item.onSale ? '下架' : '上架'}}
+              </view>
+              <view class="btn-mini danger" bindtap="onDeleteDish" data-id="{{item._id}}">删除</view>
+            </view>
+          </view>
+        </view>
+        <view class="list-pad"></view>
+      </block>
+
+      <view wx:else class="empty">
+        <text class="empty-emoji">🍳</text>
+        <block wx:if="{{role === 'chef'}}">还没有菜品，点上面的「新增菜品」开张吧！</block>
+        <block wx:else>主厨还没上菜，去催催他～</block>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 顾客：底部购物车栏 -->
+  <view class="cart-bar" wx:if="{{role === 'customer'}}">
+    <view class="cart-left">
+      <view class="cart-icon">🛒<view wx:if="{{cartCount > 0}}" class="cart-badge">{{cartCount}}</view></view>
+      <view class="cart-total">
+        <text wx:if="{{cartCount > 0}}" class="coin">🪙 {{cartTotal}}</text>
+        <text wx:else class="cart-empty-text">购物车空空的</text>
+      </view>
+    </view>
+    <view class="cart-go {{cartCount > 0 ? '' : 'disabled'}}" bindtap="onCheckout">去结算</view>
+  </view>
+
+</view>
