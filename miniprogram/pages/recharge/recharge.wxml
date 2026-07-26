@@ -1,0 +1,25 @@
+<view class="wrap">
+
+  <view class="card">
+    <view class="section-title">充值数量</view>
+    <view class="amount-row">
+      <text class="coin-icon">🪙</text>
+      <input class="amount-input" type="number" value="{{amount}}"
+             placeholder="0" bindinput="onAmountInput" />
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">附言（会显示在她的金币明细里）</view>
+    <input class="memo-input" value="{{memo}}" maxlength="30"
+           placeholder="比如：洗碗奖励" bindinput="onMemoInput" />
+    <view class="chips">
+      <view class="chip" wx:for="{{quickMemos}}" wx:key="*this"
+            bindtap="onQuickMemo" data-memo="{{item}}">{{item}}</view>
+    </view>
+  </view>
+
+  <button class="btn-primary submit-btn {{submitting ? 'btn-disabled' : ''}}"
+          bindtap="onSubmit">确认充值 💝</button>
+
+</view>

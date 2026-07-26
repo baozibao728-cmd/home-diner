@@ -1,0 +1,7 @@
+# 微信开发者工具的本地私有配置（每台电脑不一样，不入库）
+project.private.config.json
+
+# 云函数本地依赖（部署时云端会自动安装）
+cloudfunctions/**/node_modules/
+
+.DS_Store

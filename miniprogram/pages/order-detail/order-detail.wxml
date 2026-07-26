@@ -1,0 +1,60 @@
+<view class="wrap" wx:if="{{order}}">
+
+  <!-- 状态进度 -->
+  <view class="card">
+    <block wx:if="{{order.status !== 'cancelled'}}">
+      <view class="steps">
+        <view class="step {{item.reached ? 'reached' : ''}} {{item.current ? 'current' : ''}}"
+              wx:for="{{steps}}" wx:key="status">
+          <view class="step-dot">{{item.emoji}}</view>
+          <view class="step-label">{{item.label}}</view>
+        </view>
+      </view>
+    </block>
+    <view wx:else class="cancelled-box">
+      <text class="cancelled-emoji">💨</text>
+      <text>订单已取消，金币已退回</text>
+    </view>
+  </view>
+
+  <!-- 菜品明细 -->
+  <view class="card">
+    <view class="section-title">菜品明细</view>
+    <view class="item" wx:for="{{order.items}}" wx:key="dishId">
+      <image wx:if="{{item.image}}" class="item-img" src="{{item.image}}" mode="aspectFill" />
+      <view wx:else class="item-img placeholder">🍽️</view>
+      <view class="item-name">{{item.name}}</view>
+      <view class="item-count">×{{item.count}}</view>
+      <view class="item-price coin">🪙 {{item.price * item.count}}</view>
+    </view>
+    <view class="total-row">
+      <text>合计</text>
+      <text class="coin total-num">🪙 {{order.total}}</text>
+    </view>
+  </view>
+
+  <!-- 备注 & 时间 -->
+  <view class="card">
+    <view class="info-row" wx:if="{{order.remark}}">
+      <text class="info-label">备注</text>
+      <text class="info-value">📝 {{order.remark}}</text>
+    </view>
+    <view class="info-row">
+      <text class="info-label">下单时间</text>
+      <text class="info-value">{{order.timeText}}</text>
+    </view>
+  </view>
+
+  <!-- 操作按钮 -->
+  <view class="ops">
+    <button wx:if="{{role === 'chef' && order.chefAction}}" class="btn-primary"
+            bindtap="onAction" data-action="{{order.chefAction.action}}">
+      {{order.chefAction.label}}
+    </button>
+    <button wx:if="{{role === 'customer' && order.canCancel}}" class="btn-ghost cancel"
+            bindtap="onAction" data-action="cancel">
+      取消订单（金币退回）
+    </button>
+  </view>
+
+</view>

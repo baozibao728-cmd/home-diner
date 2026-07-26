@@ -1,0 +1,9 @@
+{
+  "name": "initData",
+  "version": "1.0.0",
+  "description": "一次性初始化：建集合、默认空间、预置分类、顾客初始金币",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

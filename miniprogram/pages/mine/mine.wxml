@@ -1,0 +1,38 @@
+<view class="wrap">
+
+  <!-- 余额卡片 -->
+  <view class="balance-card">
+    <view class="balance-label">
+      {{role === 'customer' ? '我的金币' : '她的金币余额'}}
+    </view>
+    <view class="balance-num">🪙 {{balance === null ? '…' : balance}}</view>
+    <view wx:if="{{role === 'chef'}}" class="recharge-btn" bindtap="onRecharge">
+      💝 给她充值
+    </view>
+    <view wx:else class="balance-tip">金币不够了就撒个娇让主厨充值～</view>
+  </view>
+
+  <!-- 收支明细 -->
+  <view class="card">
+    <view class="section-title">金币明细</view>
+    <block wx:if="{{records.length}}">
+      <view class="record" wx:for="{{records}}" wx:key="_id">
+        <view class="record-left">
+          <view class="record-memo">{{item.memo}}</view>
+          <view class="record-time">{{item.timeText}}</view>
+        </view>
+        <view class="record-amount {{item.isIncome ? 'income' : 'outcome'}}">
+          {{item.amountText}}
+        </view>
+      </view>
+    </block>
+    <view wx:else class="empty small">
+      <text class="empty-emoji">🪙</text>
+      还没有金币记录
+    </view>
+  </view>
+
+  <!-- 切换身份 -->
+  <view class="switch-role" bindtap="onSwitchRole">🔄 切换身份</view>
+
+</view>

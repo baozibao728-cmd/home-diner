@@ -1,0 +1,74 @@
+.wrap {
+  padding: 24rpx 0 60rpx;
+}
+
+.section-title {
+  font-size: 26rpx;
+  color: #8A7A6E;
+  margin-bottom: 20rpx;
+  font-weight: 600;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  padding: 14rpx 0;
+}
+.item-img {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 14rpx;
+  background: #F5EFE9;
+  flex-shrink: 0;
+}
+.item-img.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 44rpx;
+}
+.item-name {
+  flex: 1;
+  margin-left: 20rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+}
+.item-count {
+  font-size: 26rpx;
+  color: #A99A8C;
+  margin-right: 24rpx;
+}
+.item-price {
+  font-size: 28rpx;
+}
+
+.remark {
+  width: 100%;
+  min-height: 80rpx;
+  font-size: 28rpx;
+  background: #FFFBF7;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+.fee-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12rpx 0;
+  font-size: 28rpx;
+}
+.total-row {
+  border-top: 2rpx solid #F7F1EA;
+  margin-top: 12rpx;
+  padding-top: 24rpx;
+  font-weight: 700;
+}
+.total-num {
+  font-size: 36rpx;
+}
+
+.submit-btn {
+  margin: 20rpx 24rpx 0;
+}

@@ -1,0 +1,9 @@
+{
+  "name": "placeOrder",
+  "version": "1.0.0",
+  "description": "下单：校验菜品和余额，事务里扣金币+写订单+记流水",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

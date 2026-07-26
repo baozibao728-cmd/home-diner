@@ -1,0 +1,71 @@
+<view class="wrap">
+
+  <view class="page-header">
+    <view class="title" wx:if="{{role === 'chef'}}">收到的订单 🔔</view>
+    <view class="title" wx:else>我的订单 📋</view>
+    <view class="subtitle" wx:if="{{watchFailed}}">实时刷新暂不可用，下拉可手动刷新</view>
+  </view>
+
+  <view wx:if="{{loading}}" class="empty">加载中…</view>
+
+  <block wx:else>
+    <!-- 进行中 -->
+    <view class="section-label" wx:if="{{active.length}}">进行中</view>
+    <view class="order-card card" wx:for="{{active}}" wx:key="_id"
+          bindtap="onTapOrder" data-id="{{item._id}}">
+      <view class="order-head">
+        <view class="tag {{item.tagClass}}">{{item.statusEmoji}} {{item.statusText}}</view>
+        <view class="order-time">{{item.timeText}}</view>
+      </view>
+
+      <view class="order-item" wx:for="{{item.items}}" wx:for-item="it" wx:key="dishId">
+        <text class="oi-name">{{it.name}}</text>
+        <text class="oi-count">×{{it.count}}</text>
+        <text class="oi-price coin">🪙 {{it.price * it.count}}</text>
+      </view>
+
+      <view class="order-remark" wx:if="{{item.remark}}">📝 {{item.remark}}</view>
+
+      <view class="order-foot">
+        <view class="order-total">合计 <text class="coin">🪙 {{item.total}}</text></view>
+        <view class="order-ops">
+          <view wx:if="{{role === 'chef' && item.chefAction}}"
+                class="op-btn primary"
+                catchtap="onAction" data-id="{{item._id}}" data-action="{{item.chefAction.action}}">
+            {{item.chefAction.label}}
+          </view>
+          <view wx:if="{{role === 'customer' && item.canCancel}}"
+                class="op-btn"
+                catchtap="onAction" data-id="{{item._id}}" data-action="cancel">
+            取消
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 历史订单 -->
+    <view class="section-label" wx:if="{{history.length}}">历史订单</view>
+    <view class="order-card card history" wx:for="{{history}}" wx:key="_id"
+          bindtap="onTapOrder" data-id="{{item._id}}">
+      <view class="order-head">
+        <view class="tag {{item.tagClass}}">{{item.statusEmoji}} {{item.statusText}}</view>
+        <view class="order-time">{{item.timeText}}</view>
+      </view>
+      <view class="order-item" wx:for="{{item.items}}" wx:for-item="it" wx:key="dishId">
+        <text class="oi-name">{{it.name}}</text>
+        <text class="oi-count">×{{it.count}}</text>
+        <text class="oi-price coin">🪙 {{it.price * it.count}}</text>
+      </view>
+      <view class="order-foot">
+        <view class="order-total">合计 <text class="coin">🪙 {{item.total}}</text></view>
+      </view>
+    </view>
+
+    <view wx:if="{{!active.length && !history.length}}" class="empty">
+      <text class="empty-emoji">🍽️</text>
+      <block wx:if="{{role === 'chef'}}">还没有订单，等她来点餐吧～</block>
+      <block wx:else>还没点过餐，去菜单看看吧～</block>
+    </view>
+  </block>
+
+</view>

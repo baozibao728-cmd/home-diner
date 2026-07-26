@@ -1,0 +1,80 @@
+.wrap {
+  padding: 24rpx 0 60rpx;
+}
+
+/* 余额卡片 */
+.balance-card {
+  margin: 8rpx 24rpx 24rpx;
+  background: linear-gradient(135deg, #FF9F6E, #FF8A5C);
+  border-radius: 32rpx;
+  padding: 48rpx 40rpx;
+  color: #FFFFFF;
+  box-shadow: 0 12rpx 30rpx rgba(255, 138, 92, 0.35);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.balance-label {
+  font-size: 26rpx;
+  opacity: 0.9;
+}
+.balance-num {
+  font-size: 76rpx;
+  font-weight: 800;
+  margin: 16rpx 0 8rpx;
+}
+.balance-tip {
+  font-size: 22rpx;
+  opacity: 0.85;
+}
+.recharge-btn {
+  margin-top: 16rpx;
+  background: #FFFFFF;
+  color: #FF8A5C;
+  font-size: 28rpx;
+  font-weight: 700;
+  padding: 16rpx 56rpx;
+  border-radius: 999rpx;
+}
+.recharge-btn:active { opacity: 0.85; }
+
+.section-title {
+  font-size: 26rpx;
+  color: #8A7A6E;
+  margin-bottom: 10rpx;
+  font-weight: 600;
+}
+
+/* 明细 */
+.record {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22rpx 0;
+  border-bottom: 2rpx solid #F7F1EA;
+}
+.record:last-child { border-bottom: none; }
+.record-memo {
+  font-size: 28rpx;
+  font-weight: 600;
+}
+.record-time {
+  font-size: 22rpx;
+  color: #B8A99A;
+  margin-top: 6rpx;
+}
+.record-amount {
+  font-size: 32rpx;
+  font-weight: 700;
+}
+.record-amount.income { color: #FF8A5C; }
+.record-amount.outcome { color: #A99A8C; }
+
+.empty.small { padding: 60rpx 20rpx; }
+
+.switch-role {
+  text-align: center;
+  color: #A99A8C;
+  font-size: 26rpx;
+  padding: 24rpx;
+}
